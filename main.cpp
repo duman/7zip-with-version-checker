@@ -75,8 +75,8 @@ int main()
 		std::cout << "Enter the path for the 7-Zip installation folder.\n\n";
 		std::cout << "Example path: C:\\Program Files\\7-Zip\n";
 		std::cout << "Your path   : ";
-		file_path.clear();
-		std::getline(std::cin, file_path);
+		//file_path.clear();
+		// std::getline(std::cin, file_path); // disabled since console GUI is disabled
 
 		if (file_path.back() != '\\') {
 			file_path = file_path + "\\7zFM.exe";
@@ -93,8 +93,20 @@ int main()
 		}
 	}
 	if (!is_file_exist(file_path_tchar)) {
-		std::cout << "\nCouldn\'t find 7zFM.exe at the provided installation location.\n";
-		std::cout << "Exiting.\n";
+		int msgboxID = MessageBox(
+			0,
+			"Couldn\'t find 7-Zip, would you like to edit settings to provide your own location?",
+			"Cannot find 7-Zip!",
+			MB_ICONEXCLAMATION | MB_YESNO
+		);
+		if (msgboxID == IDYES) {
+			std::string launch_notepad_on_settings = "notepad.exe " + settings_path;
+			system(launch_notepad_on_settings.c_str());
+			exit(1);
+		}
+		else {
+			exit(1);
+		}
 		Sleep(1000);
 		exit(2);
 	}

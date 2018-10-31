@@ -25,6 +25,7 @@ int main()
 	// Settings location
 	std::string exe_path = exe_location();
 	std::string settings_path = exe_path + "\\settings.dat";
+	std::string seven_zip_path = exe_path + "\\7zFM.exe";
 	// Filestreaming
 	std::ofstream exe_settings_write;
 	std::ifstream exe_settings_read;
@@ -32,14 +33,14 @@ int main()
 	std::vector<std::string> settings_vector;
 	std::string current_time = unix_timestamp_now();
 	// Setting variables
-	std::string file_path = "C:\\Program Files\\7-Zip\\7zFM.exe";
+	std::string file_path = seven_zip_path;
 	std::string check_interval = "0";
 	std::string current_version;
 	std::string latest_fetch_version;
 
 	if (!is_file_exist(settings_path.c_str())) {
 		exe_settings_write.open(settings_path);
-		exe_settings_write << "C:\\Program Files\\7-Zip\\7zFM.exe\n";
+		exe_settings_write << seven_zip_path << "\n";
 		std::string target = unix_timestamp_a_week_later();
 		exe_settings_write << target << "\n";
 		exe_settings_write << "0.0" << "\n";
@@ -67,7 +68,7 @@ int main()
 	}
 	if (!is_file_exist(file_path_tchar)) {
 		file_path.clear();
-		file_path = "C:\\Program Files (x86)\\7-Zip\\7zFM.exe";
+		file_path = seven_zip_path;
 		file_path_tchar = (TCHAR*)file_path.c_str();
 	}
 	if (!is_file_exist(file_path_tchar)) {

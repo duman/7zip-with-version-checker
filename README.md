@@ -1,7 +1,7 @@
 # 7zip-with-version-checker
 This program will allow you to check if there's a newer version of 7-Zip before launching it.
 
-<center>![Update Window](https://i.hizliresim.com/Z3vnro.png)</center>
+<p align="center"><img align="center" src="https://image.ibb.co/kQ9eoL/version1.png" alt="Update box"></p>
 
 * Installation is pretty straightforward, go to [releases](https://github.com/tkduman/7zip-with-version-checker/releases).
 * Download the latest version.

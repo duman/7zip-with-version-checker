@@ -22,7 +22,7 @@ bool is_empty(std::ifstream&);
 
 int main()
 {
-	// Settings location
+	// Settings location 
 	std::string exe_path = exe_location();
 	std::string settings_path = exe_path + "\\settings.dat";
 	std::string seven_zip_path = exe_path + "\\7zFM.exe";
